@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  caption: MyString
+  image: MyString
+  owner: one
+  address: MyString
+  bedrooms: 1
+  bathrooms: MyString
+  rent: MyString
+  mortgage: MyString
+  tenant_name: MyString
+  tenant_phone: MyString
+  comments_count: 1
+
+two:
+  caption: MyString
+  image: MyString
+  owner: two
+  address: MyString
+  bedrooms: 1
+  bathrooms: MyString
+  rent: MyString
+  mortgage: MyString
+  tenant_name: MyString
+  tenant_phone: MyString
+  comments_count: 1
