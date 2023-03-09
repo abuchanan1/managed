@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'properties#index'
   resources :comments
   resources :properties
   devise_for :users

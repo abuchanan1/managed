@@ -1,6 +1,6 @@
-<%= form_with(model: property) do |form| %>
+<%= form_with(model: property, class: "form") do |form| %>
   <% if property.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger">
       <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
 
       <ul>
@@ -11,62 +11,64 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :caption %>
-    <%= form.text_field :caption %>
-  </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
+<div class="form-group">
+  <%= form.label :image %>
+  <%= form.file_field :image, class: "form-control" %>
+</div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :owner_id %>
-    <%= form.text_field :owner_id %>
+    <%= form.text_field :owner_id, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :bedrooms %>
-    <%= form.number_field :bedrooms %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :bedrooms %>
+      <%= form.number_field :bedrooms, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.label :bathrooms %>
+      <%= form.text_field :bathrooms, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :bathrooms %>
-    <%= form.text_field :bathrooms %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :rent %>
+      <%= form.text_field :rent, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.label :mortgage %>
+      <%= form.text_field :mortgage, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :rent %>
-    <%= form.text_field :rent %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :tenant_name %>
+      <%= form.text_field :tenant_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.label :tenant_phone %>
+      <%= form.text_field :tenant_phone, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :mortgage %>
-    <%= form.text_field :mortgage %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tenant_name %>
-    <%= form.text_field :tenant_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tenant_phone %>
-    <%= form.text_field :tenant_phone %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :comments_count %>
-    <%= form.number_field :comments_count %>
+    <%= form.number_field :comments_count, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>
