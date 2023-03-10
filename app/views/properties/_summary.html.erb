@@ -1,18 +1,53 @@
-<h1>Welcome to the Property Manager Dashboard</h1>
-
-<p>Here's some useful information about your properties:</p>
-
-<ul>
-  <li>Total number of properties: <%= Property.count %></li>
-  <li>Total number of properties by owner:</li>
-  <ul>
-    <% User.all.each do |owner| %>
-      <li><%= owner.username %>: <%= owner.own_properties.count %></li>
-    <% end %>
-  </ul>
-  <li>Total revenue generated from properties: $<%= number_with_delimiter(Property.sum(:rent)) %></li>
-  <li>Number of vacant properties: <%= Property.where(tenant_name: nil).count %></li>
-  <!-- Add any other relevant information here -->
-</ul>
-
-<p>Use the navigation menu at the top of the page to manage your properties.</p>
+<div class="container my-5">
+  <h1 class="text-center mb-5">Welcome to the Property Manager Dashboard</h1>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card border-dark mb-4">
+        <div class="card-body text-dark">
+          <h5 class="card-title">Total number of properties</h5>
+          <p class="card-text display-4"><%= Property.count %></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="card border-dark mb-4">
+        <div class="card-body text-dark">
+          <h5 class="card-title">Total number of properties by owner</h5>
+          <ul class="list-group">
+            <% User.all.each do |owner| %>
+              <li class="list-group-item">
+              <%= owner.username %>: <%= owner.own_properties.count %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="card border-dark mb-4">
+        <div class="card-body text-dark">
+          <h5 class="card-title">Total revenue generated from properties</h5>
+          <p class="card-text display-4">$<%= number_with_delimiter(Property.sum(:rent)) %></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="card border-dark mb-4">
+        <div class="card-body text-dark">
+          <h5 class="card-title">Number of vacant properties</h5>
+          <p class="card-text display-4"><%= Property.where(tenant_name: nil).count %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to 'Manage your properties', properties_path, class: 'btn btn-lg btn-outline-dark' %>
+    </div>
+  </div>
+</div>

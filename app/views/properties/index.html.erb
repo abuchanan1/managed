@@ -1,7 +1,29 @@
 <p id="notice"><%= notice %></p>
-<%= render "properties/summary" %>
+
+  <div class="col-md-4">
+    <%= form_tag properties_path, method: :get, class: "form-inline" do %>
+      <label for="owner_username" class="mr-2">Owner:</label>
+      <%= select_tag "owner_username", options_for_select(User.pluck(:username)), prompt: "Select owner", class: "form-control mr-2", onchange: "this.form.submit();" %>
+    <% end %>
+  </div>
+  
+<div class="row mb-3">
+  <div class="col-md-4">
+    <%= form_tag properties_path, method: :get, class: "form-inline" do %>
+      <label for="bedrooms" class="mr-2">Bedrooms:</label>
+      <%= select_tag "bedrooms", options_for_select((1..10).map { |n| [n, n] }), prompt: "Select bedrooms", class: "form-control mr-2", onchange: "this.form.submit();" %>
+    <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <%= form_tag properties_path, method: :get, class: "form-inline" do %>
+      <label for="bathrooms" class="mr-2">Bathrooms:</label>
+      <%= select_tag "bathrooms", options_for_select((1..5).map { |n| [n, n] }), prompt: "Select bathrooms", class: "form-control mr-2", onchange: "this.form.submit();" %>
+    <% end %>
+  </div>
+</div>
+
 <h1>Properties</h1>
-<div style="padding-left: 20px;">
 <table class="table table-dark table-striped">
   <thead>
     <tr>

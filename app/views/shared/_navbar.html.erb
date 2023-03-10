@@ -8,7 +8,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Options
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/comments">Comments</a></li>
@@ -16,15 +16,8 @@
         </li>
       </ul>
       <ul class ="navbar-nav mr-auto">
-        <li class="nav-item">
-        <%= link_to "Sign in", new_user_session_path, class: "navbar-brand"%>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, class: "navbar-brand"%>
-        </li>
-        
-        <li class="nav-item">
+      <% if user_signed_in? %>
+              <li class="nav-item">
           <%= link_to "Edit Profile", edit_user_registration_path, class: "navbar-brand"%>
         </li>
 
@@ -32,6 +25,21 @@
           <%#= button_to "Sign out", destroy_user_session_path, method: :delete, class: "navbar-brand"%>
           <%= button_to('Sign out', destroy_user_session_path, method: "delete", remote: true) %>
         </li>
+
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Sign in", new_user_session_path, class: "navbar-brand"%>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class: "navbar-brand"%>
+        </li>
+
+
+      <% end %>
+
+        
+
 
         
         
