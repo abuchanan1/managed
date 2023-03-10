@@ -14,7 +14,6 @@
       <th>Mortgage</th>
       <th>Tenant name</th>
       <th>Tenant phone</th>
-      <th>Comments count</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,8 +21,7 @@
   <tbody>
     <% @properties.each do |property| %>
       <tr>
-        <td><%= property.caption %></td>
-        <td><%= property.image %></td>
+        <td><%= image_tag property.image %></td>
         <td><%= property.owner_id %></td>
         <td><%= property.address %></td>
         <td><%= property.bedrooms %></td>
@@ -32,7 +30,6 @@
         <td><%= property.mortgage %></td>
         <td><%= property.tenant_name %></td>
         <td><%= property.tenant_phone %></td>
-        <td><%= property.comments_count %></td>
         <td><%= link_to 'Show', property %></td>
         <td><%= link_to 'Edit', edit_property_path(property) %></td>
         <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>

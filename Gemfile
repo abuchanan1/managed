@@ -63,6 +63,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'devise'
+  gem 'faker'
   gem 'htmlbeautifier'
   gem 'pry-rails'
   gem 'rack-canonical-host'
