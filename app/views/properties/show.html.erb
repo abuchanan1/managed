@@ -1,59 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Caption:</strong>
-  <%= @property.caption %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @property.image %>
-</p>
-
-<p>
-  <strong>Owner:</strong>
-  <%= @property.owner_id %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
-
-<p>
-  <strong>Bedrooms:</strong>
-  <%= @property.bedrooms %>
-</p>
-
-<p>
-  <strong>Bathrooms:</strong>
-  <%= @property.bathrooms %>
-</p>
-
-<p>
-  <strong>Rent:</strong>
-  <%= @property.rent %>
-</p>
-
-<p>
-  <strong>Mortgage:</strong>
-  <%= @property.mortgage %>
-</p>
-
-<p>
-  <strong>Tenant name:</strong>
-  <%= @property.tenant_name %>
-</p>
-
-<p>
-  <strong>Tenant phone:</strong>
-  <%= @property.tenant_phone %>
-</p>
-
-<p>
-  <strong>Comments count:</strong>
-  <%= @property.comments_count %>
-</p>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="<%= @property.image %>" class="img-fluid rounded">
+    </div>
+    <div class="col-md-8">
+      <h1><%= @property.address %></h1>
+      <p class="lead">Owned by <%= @property.owner.username %></p>
+      <hr>
+      <h3>Details:</h3>
+      <p><strong>Bedrooms:</strong> <%= @property.bedrooms %></p>
+      <p><strong>Bathrooms:</strong> <%= @property.bathrooms %></p>
+      <p><strong>Rent:</strong> <%= number_to_currency(@property.rent) %></p>
+      <p><strong>Mortgage:</strong> <%= number_to_currency(@property.mortgage) %></p>
+      <p><strong>Tenant name:</strong> <%= @property.tenant_name %></p>
+      <p><strong>Tenant phone:</strong> <%= @property.tenant_phone %></p>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <%= link_to 'Add Comment', new_comment_path, class: "btn btn-dark" %>
+      <%= link_to 'Edit', edit_property_path(@property), class: "btn btn-secondary" %>
+      <%= link_to 'Back', properties_path, class: "btn btn-light" %>
+    </div>
+  </div>
+</div>

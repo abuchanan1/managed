@@ -1,0 +1,18 @@
+<h1>Welcome to the Property Manager Dashboard</h1>
+
+<p>Here's some useful information about your properties:</p>
+
+<ul>
+  <li>Total number of properties: <%= Property.count %></li>
+  <li>Total number of properties by owner:</li>
+  <ul>
+    <% User.all.each do |owner| %>
+      <li><%= owner.username %>: <%= owner.own_properties.count %></li>
+    <% end %>
+  </ul>
+  <li>Total revenue generated from properties: $<%= number_with_delimiter(Property.sum(:rent)) %></li>
+  <li>Number of vacant properties: <%= Property.where(tenant_name: nil).count %></li>
+  <!-- Add any other relevant information here -->
+</ul>
+
+<p>Use the navigation menu at the top of the page to manage your properties.</p>

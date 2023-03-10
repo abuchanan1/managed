@@ -162,8 +162,6 @@ GEM
     nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.9-x86_64-darwin)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.22.1)
     parser (3.1.1.0)
@@ -359,7 +357,7 @@ DEPENDENCIES
   bullet
   byebug
   capybara (>= 3.26)
-  devise
+  devise (~> 4.9)
   faker
   htmlbeautifier
   jbuilder (~> 2.7)

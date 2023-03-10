@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= render "properties/summary" %>
 <h1>Properties</h1>
 <div style="padding-left: 20px;">
 <table class="table table-dark table-striped">
@@ -22,7 +22,7 @@
     <% @properties.each do |property| %>
       <tr>
         <td><%= image_tag property.image %></td>
-        <td><%= property.owner_id %></td>
+        <td><%= property.owner.username %></td>
         <td><%= property.address %></td>
         <td><%= property.bedrooms %></td>
         <td><%= property.bathrooms %></td>
